@@ -1,0 +1,9 @@
+--extra-index-url https://pytorch.org
+fastapi
+uvicorn
+python-multipart
+jinja2
+torch
+torchvision
+pillow
+google-genai
