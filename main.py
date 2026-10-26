@@ -186,8 +186,6 @@ async def predict(file: UploadFile = File(...)):
         crop=crop_clean, disease=disease_clean, is_healthy=is_healthy
     )
 
-    print(treatment_plan)
-
     return {
         "crop": crop_clean,
         "disease": disease_clean,

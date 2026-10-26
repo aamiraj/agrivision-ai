@@ -4,6 +4,7 @@ from google import genai
 from google.genai import types
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from google.genai import errors
 
 # This reads the .env file and injects it into os.environ
 load_dotenv() 
@@ -23,6 +24,8 @@ class DiseaseTreatment(BaseModel):
 
 def generate_treatment_plan(crop: str, disease: str, is_healthy: bool) -> dict:
     """Uses an LLM to generate real-time treatment guidelines for a detected disease."""
+
+    model_id="gemini-3.5-flash-lite"  # Fast and cost-effective for structured tasks
 
     if is_healthy:
         return {
@@ -53,7 +56,7 @@ def generate_treatment_plan(crop: str, disease: str, is_healthy: bool) -> dict:
 
     try:
         response = client.models.generate_content(
-            model="gemini-3.1-flash-lite",  # Fast and cost-effective for structured tasks
+            model=model_id,  # Fast and cost-effective for structured tasks
             contents=prompt,
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
