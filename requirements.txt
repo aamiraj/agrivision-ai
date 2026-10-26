@@ -1,4 +1,4 @@
---extra-index-url https://pytorch.org
+--index-url https://download.pytorch.org/whl/cpu
 fastapi
 uvicorn
 python-multipart
@@ -7,3 +7,4 @@ torch
 torchvision
 pillow
 google-genai
+dotenv
